@@ -1,7 +1,7 @@
 package com.kamkaczo.springboot.crud.rest;
 
-import com.kamkaczo.springboot.crud.dao.EmployeeDAO;
 import com.kamkaczo.springboot.crud.entity.Employee;
+import com.kamkaczo.springboot.crud.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,17 +13,17 @@ import java.util.List;
 @RequestMapping("/api")
 public class EmployeeRestController {
 
-    private EmployeeDAO employeeDAO;
+    private EmployeeService employeeService;
 
     // inject employee dao (use constructor injection)
     @Autowired
-    public EmployeeRestController(EmployeeDAO theEmployeeDAO) {
-        employeeDAO = theEmployeeDAO;
+    public EmployeeRestController(EmployeeService theEmployeeService) {
+        employeeService = theEmployeeService;
     }
 
     // expose "/employees" and return list od employees
     @GetMapping("/employees")
     public List<Employee> findAll() {
-        return employeeDAO.findAll();
+        return employeeService.findAll();
     }
 }

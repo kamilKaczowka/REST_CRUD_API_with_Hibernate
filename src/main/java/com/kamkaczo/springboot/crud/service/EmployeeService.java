@@ -1,10 +1,10 @@
-package com.kamkaczo.springboot.crud.dao;
+package com.kamkaczo.springboot.crud.service;
 
 import com.kamkaczo.springboot.crud.entity.Employee;
 
 import java.util.List;
 
-public interface EmployeeDAO {
+public interface EmployeeService {
 
     public List<Employee> findAll();
 
